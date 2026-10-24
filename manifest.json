@@ -1,0 +1,7 @@
+{
+    "display_name": "我注意到你的情绪了喵👁🫦<",
+    "loading_order": 15,
+    "version": "1.4.0",
+    "author": "YourName",
+    "description": "自动解析AI回复中的说话角色与台词，调取情绪分类器实现多角色自动变脸、跳动动画与最多3人同屏显示。"
+}
