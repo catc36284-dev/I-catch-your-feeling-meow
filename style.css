@@ -1,0 +1,557 @@
+/* ==========================================================================
+   👁🫦< 我注意到你的情緒了喵 - Pink Frosted Glass & Visual Novel Stage Styles
+   ========================================================================== */
+
+/* 1. Extensions Menu (🧩) Entry Item - Pink Frosted Glass */
+#emotion_nya_menu_item {
+    background: linear-gradient(135deg, rgba(255, 182, 193, 0.38) 0%, rgba(255, 105, 180, 0.25) 100%) !important;
+    backdrop-filter: blur(14px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(14px) saturate(180%) !important;
+    border: 1px solid rgba(255, 192, 203, 0.65) !important;
+    border-radius: 12px !important;
+    padding: 8px 12px !important;
+    margin: 5px 4px !important;
+    color: #fff0f6 !important;
+    font-weight: 600 !important;
+    text-shadow: 0 1px 4px rgba(199, 21, 133, 0.55) !important;
+    box-shadow: 0 4px 16px rgba(255, 105, 180, 0.28), inset 0 1px 1px rgba(255, 255, 255, 0.5) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    cursor: pointer !important;
+    transition: all 0.28s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+    user-select: none !important;
+}
+
+#emotion_nya_menu_item:hover {
+    background: linear-gradient(135deg, rgba(255, 182, 193, 0.55) 0%, rgba(255, 105, 180, 0.42) 100%) !important;
+    transform: translateY(-2px) scale(1.01) !important;
+    box-shadow: 0 6px 20px rgba(255, 105, 180, 0.45), inset 0 1px 2px rgba(255, 255, 255, 0.7) !important;
+    border-color: rgba(255, 220, 230, 0.9) !important;
+}
+
+.nya-menu-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+}
+
+.nya-status-pill {
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: rgba(255, 20, 147, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    color: #ffffff;
+    box-shadow: 0 0 8px rgba(255, 105, 180, 0.6);
+    transition: all 0.2s ease;
+}
+
+.nya-status-pill.off {
+    background: rgba(80, 60, 70, 0.45);
+    border-color: rgba(200, 180, 190, 0.4);
+    color: rgba(255, 230, 240, 0.65);
+    box-shadow: none;
+}
+
+/* 2. Floating Pink Frosted Glass Settings Modal / Drawer */
+#emotion_nya_panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.96);
+    width: 680px;
+    max-width: 94vw;
+    max-height: 86vh;
+    background: linear-gradient(145deg, rgba(255, 192, 203, 0.32) 0%, rgba(255, 115, 179, 0.22) 50%, rgba(45, 20, 35, 0.78) 100%);
+    backdrop-filter: blur(22px) saturate(190%);
+    -webkit-backdrop-filter: blur(22px) saturate(190%);
+    border: 1.5px solid rgba(255, 192, 203, 0.68);
+    border-radius: 22px;
+    box-shadow: 0 20px 50px rgba(25, 5, 18, 0.65), 0 0 30px rgba(255, 105, 180, 0.32), inset 0 1px 2px rgba(255, 255, 255, 0.55);
+    color: #fff5f8;
+    z-index: 9999;
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+#emotion_nya_panel.open {
+    display: flex;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.nya-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 22px;
+    background: linear-gradient(90deg, rgba(255, 105, 180, 0.35), rgba(255, 182, 193, 0.18));
+    border-bottom: 1px solid rgba(255, 192, 203, 0.45);
+}
+
+.nya-panel-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 0 2px 6px rgba(219, 39, 119, 0.65);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nya-close-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 192, 203, 0.6);
+    color: #fff;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.nya-close-btn:hover {
+    background: rgba(255, 20, 147, 0.6);
+    transform: rotate(90deg);
+}
+
+.nya-panel-body {
+    padding: 18px 22px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.nya-panel-body::-webkit-scrollbar {
+    width: 6px;
+}
+.nya-panel-body::-webkit-scrollbar-thumb {
+    background: rgba(255, 182, 193, 0.55);
+    border-radius: 999px;
+}
+
+.nya-card {
+    background: rgba(255, 240, 246, 0.12);
+    border: 1px solid rgba(255, 192, 203, 0.42);
+    border-radius: 16px;
+    padding: 14px 16px;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.25);
+}
+
+.nya-card-title {
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: #ffd1e6;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nya-toggle-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 10px;
+}
+
+.nya-toggle-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 182, 193, 0.16);
+    border: 1px solid rgba(255, 192, 203, 0.35);
+    padding: 9px 12px;
+    border-radius: 12px;
+}
+
+.nya-toggle-label {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #fff0f5;
+}
+
+.nya-switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+}
+.nya-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.nya-slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background-color: rgba(80, 45, 65, 0.65);
+    border: 1px solid rgba(255, 192, 203, 0.45);
+    transition: .25s;
+    border-radius: 24px;
+}
+.nya-slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 2px;
+    background-color: #fff;
+    transition: .25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+.nya-switch input:checked + .nya-slider {
+    background: linear-gradient(90deg, #ff69b4, #ff1493);
+    border-color: #ffe4e1;
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.65);
+}
+.nya-switch input:checked + .nya-slider:before {
+    transform: translateX(19px);
+}
+
+.nya-input, .nya-select, .nya-textarea {
+    width: 100%;
+    background: rgba(35, 12, 26, 0.55) !important;
+    border: 1px solid rgba(255, 182, 193, 0.5) !important;
+    border-radius: 10px !important;
+    color: #fff5f8 !important;
+    padding: 7px 10px !important;
+    font-size: 0.85rem !important;
+    outline: none !important;
+    transition: border-color 0.2s, box-shadow 0.2s !important;
+    box-sizing: border-box !important;
+}
+
+.nya-input:focus, .nya-select:focus, .nya-textarea:focus {
+    border-color: #ff69b4 !important;
+    box-shadow: 0 0 8px rgba(255, 105, 180, 0.55) !important;
+}
+
+.nya-textarea {
+    min-height: 92px;
+    resize: vertical;
+    line-height: 1.45;
+}
+
+.nya-char-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nya-char-slot {
+    background: rgba(255, 192, 203, 0.14);
+    border: 1px solid rgba(255, 182, 193, 0.4);
+    border-radius: 12px;
+    padding: 10px 12px;
+    transition: all 0.2s ease;
+}
+
+.nya-char-slot.active-slot {
+    border-color: #ff69b4;
+    background: rgba(255, 105, 180, 0.22);
+    box-shadow: 0 0 12px rgba(255, 105, 180, 0.25);
+}
+
+.nya-char-row-main {
+    display: grid;
+    grid-template-columns: 32px 1.1fr 1.4fr 0.9fr auto;
+    gap: 8px;
+    align-items: center;
+}
+
+.nya-slot-index {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #ffb6c1;
+    text-align: center;
+}
+
+.nya-btn {
+    background: linear-gradient(135deg, rgba(255, 105, 180, 0.75), rgba(219, 39, 119, 0.75));
+    border: 1px solid rgba(255, 228, 225, 0.7);
+    color: #fff;
+    padding: 6px 11px;
+    border-radius: 9px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.nya-btn:hover {
+    background: linear-gradient(135deg, rgba(255, 105, 180, 0.95), rgba(219, 39, 119, 0.95));
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(255, 20, 147, 0.4);
+}
+
+.nya-btn-secondary {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 192, 203, 0.5);
+}
+
+.nya-expr-drawer {
+    display: none;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed rgba(255, 192, 203, 0.4);
+}
+
+.nya-expr-drawer.open {
+    display: block;
+}
+
+.nya-expr-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(195px, 1fr));
+    gap: 7px;
+    margin-top: 8px;
+    max-height: 220px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.nya-expr-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(25, 8, 18, 0.45);
+    padding: 5px 8px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 182, 193, 0.25);
+}
+
+.nya-expr-item label {
+    font-size: 0.74rem;
+    color: #ffd1e6;
+    min-width: 72px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.nya-expr-item input {
+    font-size: 0.75rem !important;
+    padding: 4px 6px !important;
+}
+
+/* 3. Visual Novel (VN) Multi-Character Stage (Left, Center, Right) */
+#emotion_nya_vn_stage {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 45;
+    display: none;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 5vw;
+    overflow: hidden;
+}
+
+#emotion_nya_vn_stage.vn-active {
+    display: flex;
+}
+
+.nya-vn-slot {
+    position: relative;
+    width: 30vw;
+    max-width: 420px;
+    height: 78vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    transition: transform 0.35s ease, filter 0.35s ease, opacity 0.35s ease;
+    pointer-events: none;
+}
+
+.nya-vn-slot.slot-left,
+.nya-vn-slot.slot-center,
+.nya-vn-slot.slot-right {
+    align-self: flex-end;
+    transform-origin: bottom center;
+}
+
+.nya-vn-slot.slot-center {
+    z-index: 47;
+}
+
+.nya-vn-slot.is-listening {
+    filter: brightness(0.88) saturate(0.92);
+}
+
+.nya-vn-slot.is-speaking {
+    filter: brightness(1.05) drop-shadow(0 8px 25px rgba(255, 105, 180, 0.45));
+    z-index: 48;
+}
+
+@keyframes nyaSpeakerHop {
+    0%   { transform: translateY(0) scale(1); }
+    30%  { transform: translateY(-20px) scale(1.02); }
+    55%  { transform: translateY(0) scale(0.995); }
+    78%  { transform: translateY(-9px) scale(1.01); }
+    100% { transform: translateY(0) scale(1); }
+}
+
+.nya-vn-slot.hop-anim {
+    animation: nyaSpeakerHop 0.58s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.nya-vn-sprite-wrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.nya-vn-sprite {
+    max-width: 100%;
+    max-height: 72vh;
+    object-fit: contain;
+    transition: opacity 0.25s ease, transform 0.3s ease;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.45));
+}
+
+.nya-vn-fallback-avatar {
+    width: 220px;
+    height: 320px;
+    margin-bottom: 40px;
+    background: linear-gradient(160deg, rgba(255, 182, 193, 0.42), rgba(255, 105, 180, 0.28));
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 2px solid rgba(255, 192, 203, 0.78);
+    border-radius: 28px;
+    box-shadow: 0 12px 32px rgba(255, 20, 147, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: #fff;
+    text-align: center;
+    padding: 16px;
+}
+
+.nya-vn-fallback-emoji {
+    font-size: 4rem;
+    filter: drop-shadow(0 4px 10px rgba(255, 20, 147, 0.4));
+}
+
+.nya-vn-nameplate {
+    position: absolute;
+    bottom: 18px;
+    background: linear-gradient(135deg, rgba(255, 182, 193, 0.55), rgba(219, 39, 119, 0.55));
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 228, 235, 0.8);
+    border-radius: 999px;
+    padding: 5px 16px;
+    color: #fff;
+    font-size: 0.86rem;
+    font-weight: 700;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
+    box-shadow: 0 4px 14px rgba(255, 105, 180, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 50;
+}
+
+.nya-vn-emotion-tag {
+    font-size: 0.74rem;
+    background: rgba(255, 255, 255, 0.25);
+    padding: 1px 8px;
+    border-radius: 999px;
+}
+
+/* 4. NPC Speaking Thought Bubble Overhead Beautification */
+.nya-thought-bubble {
+    position: absolute;
+    top: 6%;
+    left: 50%;
+    transform: translateX(-50%) scale(0.85);
+    background: linear-gradient(135deg, rgba(255, 240, 246, 0.88) 0%, rgba(255, 192, 203, 0.78) 100%);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border: 2px solid rgba(255, 255, 255, 0.92);
+    border-radius: 30px;
+    padding: 10px 18px;
+    color: #b81d65;
+    font-size: 0.88rem;
+    font-weight: 700;
+    white-space: nowrap;
+    box-shadow: 0 8px 24px rgba(255, 105, 180, 0.45), inset 0 2px 4px rgba(255, 255, 255, 0.9);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 55;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nya-thought-bubble.active {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+    animation: nyaBubbleFloat 2.4s ease-in-out infinite;
+}
+
+.nya-thought-bubble::before {
+    content: "";
+    position: absolute;
+    bottom: -11px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 210, 225, 0.88);
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    box-shadow: 0 3px 8px rgba(255, 105, 180, 0.35);
+}
+
+.nya-thought-bubble::after {
+    content: "";
+    position: absolute;
+    bottom: -21px;
+    left: calc(50% - 6px);
+    width: 7px;
+    height: 7px;
+    background: rgba(255, 210, 225, 0.82);
+    border: 1.5px solid rgba(255, 255, 255, 0.85);
+    border-radius: 50%;
+}
+
+@keyframes nyaBubbleFloat {
+    0%, 100% { transform: translateX(-50%) translateY(0px); }
+    50%      { transform: translateX(-50%) translateY(-7px); }
+}
+
+.nya-bubble-dots span {
+    display: inline-block;
+    animation: nyaDotPulse 1.4s infinite both;
+}
+.nya-bubble-dots span:nth-child(2) { animation-delay: 0.2s; }
+.nya-bubble-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes nyaDotPulse {
+    0%, 80%, 100% { transform: scale(0.7); opacity: 0.5; }
+    40%           { transform: scale(1.2); opacity: 1; }
+}
